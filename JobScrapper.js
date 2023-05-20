@@ -8,6 +8,8 @@ class Jobs {
 
   // Initializes and create puppeteer instance
   static async init() {
+    console.log('Done');
+
     browser = await puppeteer.launch({
       // headless: false,
       args: [
