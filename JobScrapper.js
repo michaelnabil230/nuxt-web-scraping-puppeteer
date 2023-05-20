@@ -24,8 +24,8 @@ class Jobs {
 
     page = await browser.newPage()
     await Promise.race([
-      await page.goto(jobUrl, { waitUntil: 'networkidle2' }).catch(() => {}),
-      await page.waitForSelector('.search-card').catch(() => {}),
+      await page.goto(jobUrl, { waitUntil: 'networkidle2' }).catch(() => { }),
+      await page.waitForSelector('.search-card').catch(() => { }),
     ])
   }
 
@@ -37,6 +37,8 @@ class Jobs {
       cardArr = Array.from(cards)
       const cardLinks = []
       cardArr.map((card) => {
+        console.log('Done');
+
         const cardTitle = card.querySelector('.card-title-link')
         const cardDesc = card.querySelector('.card-description')
         const cardCompany = card.querySelector(
