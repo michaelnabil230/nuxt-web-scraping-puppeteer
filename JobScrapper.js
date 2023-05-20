@@ -32,12 +32,13 @@ class Jobs {
   // Visits the page, retrieves the job
   static async resolver() {
     await this.init()
+    console.log('Done');
+
     const jobURLs = await page.evaluate(() => {
       const cards = document.querySelectorAll('.search-card')
       cardArr = Array.from(cards)
       const cardLinks = []
       cardArr.map((card) => {
-        console.log('Done');
 
         const cardTitle = card.querySelector('.card-title-link')
         const cardDesc = card.querySelector('.card-description')
